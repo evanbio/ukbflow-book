@@ -4,6 +4,11 @@ toc: false
 page-layout: full
 ---
 
+[![CRAN status](https://www.r-pkg.org/badges/version/ukbflow)](https://cran.r-project.org/package=ukbflow)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/ukbflow)](https://cran.r-project.org/package=ukbflow)
+[![pkgdown](https://img.shields.io/badge/docs-pkgdown-blue)](https://evanbio.github.io/ukbflow/)
+[![GitHub](https://img.shields.io/badge/source-GitHub-181717?logo=github)](https://github.com/evanbio/ukbflow)
+
 ::: {.columns}
 
 ::: {.column width="70%"}
