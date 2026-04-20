@@ -1,0 +1,28 @@
+---
+title: "Plot"
+---
+
+The `plot` module turns analysis outputs into manuscript-ready tables and
+figures. It is intentionally narrow: forest plots for effect estimates and
+Table 1 outputs for baseline characteristics.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `plot_forest()` | Render effect estimates with confidence intervals |
+| `plot_tableone()` | Build baseline characteristic tables with optional p-values and SMDs |
+
+## Workflow Role
+
+`plot_forest()` is designed for outputs from `assoc_*()` and `grs_validate()`.
+`plot_tableone()` is designed for cohort description before modelling. Both
+functions keep common publication defaults close to the workflow while still
+allowing manual formatting for specific manuscripts.
+
+## Review Focus
+
+- stable column indexing after forest-plot display columns are inserted;
+- numeric validation for estimates, confidence intervals, and p-value columns;
+- clear save behavior and supported output formats;
+- optional dependencies for document and image export.

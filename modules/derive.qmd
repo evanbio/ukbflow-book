@@ -1,0 +1,30 @@
+---
+title: "Derive"
+---
+
+The `derive` module is the main phenotype construction layer. It converts raw
+UKB fields and multi-source records into analysis-ready covariates, disease
+outcomes, event dates, timing variables, and follow-up durations.
+
+## Scope
+
+| Group | Functions |
+|---|---|
+| General variables | `derive_missing()`, `derive_covariate()`, `derive_cut()` |
+| Disease sources | `derive_selfreport()`, `derive_hes()`, `derive_first_occurrence()`, `derive_cancer_registry()`, `derive_death_registry()` |
+| Case definitions | `derive_icd10()`, `derive_case()` |
+| Survival variables | `derive_timing()`, `derive_age()`, `derive_followup()` |
+
+## Workflow Role
+
+Use `derive_missing()` early to normalise UKB special missing values. Build
+source-specific disease variables next, combine them with `derive_icd10()` or
+`derive_case()`, and finish by deriving timing, age, and follow-up variables
+for downstream association models.
+
+## Review Focus
+
+- consistent date parsing across source types;
+- unambiguous prevalent and incident case definitions;
+- stable naming conventions for status, date, age, timing, and follow-up columns;
+- clear warnings when requested source columns are absent.

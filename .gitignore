@@ -1,0 +1,8 @@
+_site/
+_freeze/
+/.quarto/
+.DS_Store
+Thumbs.db
+*.bak
+_dev
+AGENTS.md

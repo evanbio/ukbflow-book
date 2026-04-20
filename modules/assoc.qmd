@@ -1,0 +1,30 @@
+---
+title: "Assoc"
+---
+
+The `assoc` module provides association models for cohort analyses, including
+Cox, logistic, linear, subgroup, trend, competing-risk, and lagged exposure
+workflows.
+
+## Scope
+
+| Group | Functions |
+|---|---|
+| Main models | `assoc_coxph()`, `assoc_logistic()`, `assoc_linear()` |
+| Aliases | `assoc_cox()`, `assoc_logit()`, `assoc_lm()` |
+| Diagnostics | `assoc_coxph_zph()`, `assoc_zph()` |
+| Extensions | `assoc_subgroup()`, `assoc_trend()`, `assoc_competing()`, `assoc_lag()` |
+| Short aliases | `assoc_sub()`, `assoc_tr()`, `assoc_fg()` |
+
+## Workflow Role
+
+Most workflows start from a derived cohort table with event, time, exposure,
+and covariate columns. The main model functions return tidy result tables that
+can be passed directly to `plot_forest()` or used as summary-level outputs.
+
+## Review Focus
+
+- strict validation of outcome, time, exposure, and covariate columns;
+- stable three-model adjustment behavior;
+- explicit handling of logical and 0/1 outcomes;
+- consistent CI and p-value formatting for downstream plots.

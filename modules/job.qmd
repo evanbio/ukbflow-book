@@ -1,0 +1,30 @@
+---
+title: "Job"
+---
+
+The `job` module monitors DNAnexus jobs created by extraction and GRS
+workflows. It gives analysis scripts a small interface for job status,
+completion, and output path resolution.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `job_status()` | Query the current state of a RAP job |
+| `job_wait()` | Wait for job completion with timeout control |
+| `job_path()` | Resolve a completed job output to a RAP file path |
+| `job_result()` | Load a completed job result object |
+| `job_ls()` | List recent RAP jobs |
+
+## Workflow Role
+
+After `extract_batch()` or GRS job submission, use `job_wait()` to block until
+completion and `job_path()` or `job_result()` to locate the output. Use
+`job_ls()` when recovering work from a previous session.
+
+## Review Focus
+
+- job ID validation;
+- timeout and polling behavior;
+- clear handling of failed, terminated, or incomplete jobs;
+- output path resolution when RAP returns file IDs or nested output objects.

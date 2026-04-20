@@ -1,0 +1,26 @@
+---
+title: "Decode"
+---
+
+The `decode` module turns raw UKB field IDs and integer-encoded categorical
+values into analysis-readable names and labels.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `decode_values()` | Convert categorical integer codes to labels |
+| `decode_names()` | Rename UKB field ID columns to snake_case names |
+
+## Workflow Role
+
+The recommended order is `decode_values()` first, then `decode_names()`.
+Value decoding needs field IDs in the original column names, while name
+decoding makes the final analysis table easier to read.
+
+## Review Focus
+
+- metadata directory validation;
+- cache keys that respect metadata location;
+- warnings for very long generated column names;
+- preserving input table class and row order.

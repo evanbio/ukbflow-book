@@ -1,0 +1,31 @@
+---
+title: "Auth"
+---
+
+The `auth` module wraps RAP authentication and project selection around the
+DNAnexus command-line tools. It keeps token handling explicit while giving the
+rest of the package a small, predictable connection layer.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `auth_login()` | Authenticate to RAP with a token |
+| `auth_status()` | Report current RAP login and project state |
+| `auth_logout()` | Remove the remote RAP token and invalidate local access |
+| `auth_list_projects()` | List accessible RAP projects |
+| `auth_select_project()` | Select the active RAP project |
+
+## Workflow Role
+
+Use this module before any function that needs RAP file access, dataset
+inspection, extraction, or job monitoring. In interactive work, start with
+`auth_status()` and only call `auth_login()` when no valid RAP session is
+available.
+
+## Review Focus
+
+- token validation without exposing secrets in messages;
+- clear distinction between local state and remote RAP token state;
+- project selection behavior after login and across sessions;
+- readable failures when `dx` is missing or unauthenticated.

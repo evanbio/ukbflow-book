@@ -1,0 +1,32 @@
+---
+title: "Fetch"
+---
+
+The `fetch` module handles RAP file listing, file download helpers, and UKB
+metadata shortcuts. It is the lightweight access layer for files that already
+exist in the project.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `fetch_ls()` | List files or folders on RAP |
+| `fetch_tree()` | Display a recursive RAP folder tree |
+| `fetch_url()` | Generate a pre-authenticated download URL |
+| `fetch_file()` | Download RAP files to the current environment |
+| `fetch_metadata()` | Download UKB metadata tables used by decoding |
+| `fetch_field()` | Download field metadata shortcuts |
+
+## Workflow Role
+
+Use `fetch_metadata()` before value decoding and use `fetch_ls()` or
+`fetch_tree()` to inspect RAP project structure. For data policy reasons,
+individual-level phenotype tables should normally stay in RAP; local download
+helpers should be used only for permitted files and summary-level outputs.
+
+## Review Focus
+
+- path validation before calling `dx`;
+- overwrite and resume behavior for downloads;
+- metadata file naming and integrity checks;
+- messages that make RAP paths and local destinations easy to audit.

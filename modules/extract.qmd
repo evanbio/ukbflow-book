@@ -1,0 +1,29 @@
+---
+title: "Extract"
+---
+
+The `extract` module builds phenotype extraction requests from UKB field IDs
+and submits them to RAP. It bridges user-facing field lists and the underlying
+`dx extract_dataset` workflow.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `extract_ls()` | List available fields in the RAP dataset |
+| `extract_pheno()` | Extract selected phenotype fields directly |
+| `extract_batch()` | Submit a batch extraction job for larger workflows |
+
+## Workflow Role
+
+Start with `extract_ls()` to confirm field availability, then use
+`extract_pheno()` for small interactive pulls or `extract_batch()` for
+long-running RAP jobs. Large cohort outputs should be handled as RAP project
+files and retrieved through `job_*()` helpers when the job finishes.
+
+## Review Focus
+
+- strict validation of field IDs and dataset names;
+- caching of field metadata by dataset location;
+- clear reporting of matched and unmatched fields;
+- stable output file naming for downstream job monitoring.

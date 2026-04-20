@@ -1,0 +1,55 @@
+project:
+  type: website
+
+website:
+  title: "ukbflow"
+  description: "A Quarto companion for RAP-native UK Biobank analysis with ukbflow."
+
+  sidebar:
+    style: "docked"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/evanbio/ukbflow-book
+        aria-label: GitHub
+      - icon: box-arrow-up-right
+        href: https://evanbio.github.io/ukbflow/
+        aria-label: ukbflow package site
+    contents:
+      - index.qmd
+      - section: "RAP Setup"
+        contents:
+          - modules/auth.qmd
+          - modules/fetch.qmd
+          - modules/extract.qmd
+          - modules/job.qmd
+      - section: "Data Preparation"
+        contents:
+          - modules/decode.qmd
+          - modules/derive.qmd
+          - modules/ops.qmd
+      - section: "Analysis"
+        contents:
+          - modules/assoc.qmd
+          - modules/grs.qmd
+          - modules/plot.qmd
+
+  page-footer:
+    left: "© 2026 Yibin Zhou"
+    right: "Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)"
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    fontsize: 20px
+    mainfont: "Source Serif 4"
+    monofont: "JetBrains Mono"
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap

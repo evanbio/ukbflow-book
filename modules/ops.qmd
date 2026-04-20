@@ -1,0 +1,35 @@
+---
+title: "Ops"
+---
+
+The `ops` module provides small workflow utilities for checking the analysis
+environment, generating synthetic UKB-like data, inspecting missingness,
+tracking pipeline snapshots, and removing withdrawn participants.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `ops_setup()` | Check dx CLI, RAP authentication, and key R package dependencies |
+| `ops_toy()` | Generate synthetic cohort, association, or forest-plot data |
+| `ops_na()` | Summarise missing values across columns |
+| `ops_snapshot()` | Record named checkpoints during data preparation |
+| `ops_snapshot_cols()` | Retrieve columns stored in a snapshot |
+| `ops_snapshot_diff()` | Compare columns between two snapshots |
+| `ops_snapshot_remove()` | Remove columns added after a snapshot |
+| `ops_set_safe_cols()` | Protect columns from snapshot-based removal |
+| `ops_withdraw()` | Exclude UK Biobank withdrawn participants |
+
+## Workflow Role
+
+Use `ops_setup()` at the beginning of a RAP session, then use `ops_toy()` for
+offline examples and tests. During real analysis, `ops_snapshot()` gives each
+pipeline stage a named checkpoint so column changes can be inspected and
+rolled back when needed.
+
+## Review Focus
+
+- input validation for flags, thresholds, seeds, labels, and file paths;
+- clear behavior for empty snapshot history;
+- strict handling of malformed or empty withdrawal files;
+- predictable synthetic data for examples, tests, and plotting templates.

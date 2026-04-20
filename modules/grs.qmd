@@ -1,0 +1,32 @@
+---
+title: "GRS"
+---
+
+The `grs` module supports genetic risk score workflows on RAP, including
+weight-file validation, BGEN to PGEN conversion, chromosome-level scoring, score
+standardisation, and association validation.
+
+## Scope
+
+| Function | Role |
+|---|---|
+| `grs_check()` | Validate SNP weight files |
+| `grs_bgen2pgen()` | Submit BGEN to PGEN conversion jobs |
+| `grs_score()` | Compute chromosome-level GRS with `plink2` |
+| `grs_standardize()` | Standardise score columns |
+| `grs_zscore()` | Alias for score standardisation |
+| `grs_validate()` | Estimate OR, HR, trend, AUC, or C-index summaries |
+
+## Workflow Role
+
+Use `grs_check()` before submitting cloud jobs. Conversion and scoring should
+run in RAP job environments where `plink2` is available. Final score columns
+can be standardised and passed to `grs_validate()` or the general `assoc_*()`
+functions.
+
+## Review Focus
+
+- strict validation of chromosome, allele, and weight columns;
+- robust command construction for RAP job submission;
+- predictable output file names across chromosomes;
+- summary-level validation outputs that are safe to export.
