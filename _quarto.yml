@@ -15,7 +15,7 @@ website:
       - icon: box-arrow-up-right
         href: https://evanbio.github.io/ukbflow/
         aria-label: ukbflow package site
-      - icon: archive
+      - icon: hexagon
         href: https://cran.r-project.org/package=ukbflow
         aria-label: CRAN
     contents:
